@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom"
 interface Props {
   title: string
   author: string
   description: string
+  reviews: string[]
 }
 
 export default function Book({ title, author, description }: Props) {
@@ -14,7 +16,19 @@ export default function Book({ title, author, description }: Props) {
         </h3>
         <h4>{author}</h4>
         <p>{description}</p>
-        <button>Review this book</button>
+        <div>
+          <h4>Reviews:</h4>
+          {reviews.length > 0 ? (
+            <ul>
+              {reviews.map((review, i) => (
+                <li key={i}>{review}</li>
+              ))}
+            </ul>
+          ) : (
+            <p>No reviews yet.</p>
+          )}
+        </div>
+        <button>Add a review</button>
       </div>
 
     </>
