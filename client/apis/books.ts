@@ -13,7 +13,15 @@ export async function getAllBooks(): Promise<Book[]> {
   }
 }
 // add a book
-
+export async function getBookById(id:number): Promise<Book> {
+  try {
+    const res = await request.get(rootUrl + `/books/${id}`)
+    return res.body as Book
+  } catch (error) {
+    console.error('Failed to fetch book', error)
+    throw new Error('Unable to fetch book')
+  }
+}
 export async function addBook(data: Book) {
   try {
     const res = await request.post(rootUrl + '/books/add').send(data)
