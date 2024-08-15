@@ -1,7 +1,6 @@
 import BooksList from './BooksList.tsx'
 
 function App() {
-  const { data } = useFruits()
 
   return (
     <>

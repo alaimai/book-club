@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Book } from '../../models/book'
 import { useAddBook } from '../hooks/useBooks'
 
-export function AddBook() {
+export default function AddBook() {
   const { mutate: addBook, isPending, isSuccess, isError } = useAddBook()
   const [bookInfo, setBookInfo] = useState<Book>({
     title: '',

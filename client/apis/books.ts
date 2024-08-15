@@ -12,14 +12,14 @@ export async function getAllBooks(): Promise<Book[]> {
     throw new Error('Unable to fetch books')
   }
 }
-// add a book 
+// add a book
 
-export async function addBook(data:Book){
+export async function addBook(data: Book) {
   try {
     const res = await request.post(rootUrl + '/books/add').send(data)
     return res.body
   } catch (error) {
-    console.error('Failed to add new book',error)
+    console.error('Failed to add new book', error)
     throw new Error('Unable to add books')
   }
 }

@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom"
 interface Props {
+  id?: number
   title: string
-  author: string
   description: string
-  reviews: string[]
+  author: string
+  review: string
+  cover_image: string
 }
 
-export default function Book({ title, author, description }: Props) {
+// To modify once hook is created
+
+export default function Book({ id, title, author, description, review, cover_image }: Props) {
   return (
     <>
       <h2>Book details:</h2>
@@ -14,21 +18,20 @@ export default function Book({ title, author, description }: Props) {
         <h3>
           <Link to={`/books/${id}`}>{title}</Link>
         </h3>
+        <img src={cover_image} alt={title} />
         <h4>{author}</h4>
         <p>{description}</p>
         <div>
-          <h4>Reviews:</h4>
-          {reviews.length > 0 ? (
-            <ul>
-              {reviews.map((review, i) => (
-                <li key={i}>{review}</li>
-              ))}
-            </ul>
+          <h4>Review:</h4>
+          {review ? (
+            <p>{review}</p>
           ) : (
-            <p>No reviews yet.</p>
+            <p>You haven't reviewed this book yet...</p>
           )}
         </div>
-        <button>Add a review</button>
+        {review === null && (
+          <button>Add Review</button>
+        )}
       </div>
 
     </>
