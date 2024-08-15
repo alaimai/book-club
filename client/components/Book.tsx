@@ -33,7 +33,7 @@ export default function Book() {
           <div>
             <h4>Review:</h4>
             {book.review ? (
-              <p>{book.eview}</p>
+              <p>{book.review}</p>
             ) : (
               <p>You haven't reviewed this book yet...</p>
             )}
