@@ -23,10 +23,13 @@ export default function AddBook() {
   
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const isUrl = validateLink(bookInfo.cover_image)
-    if(!isUrl){
+    console.log(bookInfo.cover_image)
+    const isUrl = validateLink(bookInfo.cover_image.trim())
+    console.log(isUrl)
+    if(isUrl === false){
       setInValidLink('Invalid HTML link!')
-    }
+      return
+    }else{
     // if (
     //   bookInfo.title === '' ||
     //   bookInfo.description === '' ||
@@ -37,7 +40,7 @@ export default function AddBook() {
     setInValidLink('')
     addBook(bookInfo)
     setBookInfo(bookDetails)
-    
+    }
   }
 
   return (

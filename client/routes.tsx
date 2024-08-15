@@ -10,7 +10,7 @@ const routes = createRoutesFromElements(
     <Route index element={<App />} />
     <Route path="books" element={<BooksList />} />
     <Route path="books/:id" element={<Book />} />
-    <Route path="books/add-book" element={<AddBook />} />
+    <Route path="/add-book" element={<AddBook />} />
   </Route>,
 )
 
