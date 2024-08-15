@@ -61,7 +61,7 @@ export function AddBook() {
           onChange={handleChange}
         />
         <div></div>
-        <button>SUBMIT</button>
+        <button>Submit</button>
       </form>
     </>
   )
