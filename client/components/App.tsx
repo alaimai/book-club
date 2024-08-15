@@ -1,4 +1,3 @@
-import { useFruits } from '../hooks/useFruits.ts'
 import BooksList from './BooksList.tsx'
 
 function App() {
