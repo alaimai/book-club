@@ -14,18 +14,18 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * TODO: replace domain, clientId, and audience
      */
-    <Auth0Provider
-      domain=""
-      clientId=""
-      authorizationParams={{
-        redirect_uri: window.location.origin,
-        audience: '',
-      }}
-    >
+    // <Auth0Provider
+    //   domain=""
+    //   clientId=""
+    //   authorizationParams={{
+    //     redirect_uri: window.location.origin,
+    //     audience: '',
+    //   }}
+    // >
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={router} />
         <ReactQueryDevtools />
       </QueryClientProvider>
-    </Auth0Provider>,
+    // </Auth0Provider>,
   )
 })
