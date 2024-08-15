@@ -1,15 +1,16 @@
-import { useFruits } from '../hooks/useBooks.ts'
+import BooksList from './BooksList.tsx'
 
 function App() {
-  const { data } = useFruits()
 
   return (
     <>
       <div className="app">
         <h1 className="text-3xl font-bold underline">
-          Fullstack Boilerplate - with Fruits!
+          Book Club
         </h1>
-        <ul>{data && data.map((fruit) => <li key={fruit}>{fruit}</li>)}</ul>
+        <section className="main">
+          <BooksList />
+        </section>
       </div>
     </>
   )
