@@ -14,24 +14,25 @@ export function AddBook() {
   ) => {
     const { name, value } = e.target
     setBookInfo((prev) => ({ ...prev, [name]: value }))
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault()
-      // if (
-      //   bookInfo.title === '' ||
-      //   bookInfo.description === '' ||
-      //   bookInfo.review === ''
-      // ) {
-      //   return window.alert('* must not be empty')
-      // }
-      addBook(bookInfo)
-      setBookInfo({ title: '', description: '', review: '' })
-    }
+  }
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    // if (
+    //   bookInfo.title === '' ||
+    //   bookInfo.description === '' ||
+    //   bookInfo.review === ''
+    // ) {
+    //   return window.alert('* must not be empty')
+    //}
+    addBook(bookInfo)
+    setBookInfo({ title: '', description: '', review: '' })
   }
 
   return (
     <>
       {isError && <div>Failed to add book</div>}
       {isSuccess && <div>New Book has been added</div>}
+      {isPending && <div>Processing....</div>}
       <h2>Add New Book</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">* Title:</label>
