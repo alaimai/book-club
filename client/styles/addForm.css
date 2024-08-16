@@ -1,0 +1,38 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin-top: 30px;
+}
+
+.formInput {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.formInput label {
+  margin-right: 20px;
+}
+
+.textInput {
+  width: 100%;
+  max-width: 300px;
+}
+
+.textAreaInput {
+  vertical-align: top;
+  width: 100%;
+  max-width: 300px;
+  height: 60px;
+}
