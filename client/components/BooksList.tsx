@@ -15,15 +15,15 @@ export default function BooksList() {
 
   return (
     <>
-      <h2>List of books:</h2>
+      <h2>My books:</h2>
       <div>
         {books.map((book) => (
-          <div key={book.id}>
+          <div>
             <h3>
-              <Link to={`/books/${book.id}`}>{book.title}</Link>
+              <Link to={`/books/${book.id}`}><b>{book.title}</b></Link>
             </h3>
-            <h4>{book.author}</h4>
-            <p>{book.description}</p>
+            <h4>Author: {book.author}</h4>
+            <p>Description: <i>{book.description}</i></p>
           </div>
         ))}
       </div>
