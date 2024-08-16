@@ -31,3 +31,12 @@ export async function addBook(data: Book) {
     throw new Error('Unable to add books')
   }
 }
+
+export async function updateReview(id: number, review: string) {
+  try {
+    const res = await request.patch(rootUrl + `/books/${id}`).send({ review })
+    return res.body as Book
+  } catch (error) {
+    throw new Error('Unable to add review')
+  }
+}

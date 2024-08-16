@@ -17,3 +17,9 @@ export async function addBook(data: Book) {
   const [id] = await db('books').insert(data)
   return id
 }
+
+export async function addReview(id: number, review: string) {
+  await db('books').where('id', id).update({ review })
+  const updatedBook = await db('books').where('id', id).first()
+  return updatedBook
+}
