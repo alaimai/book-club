@@ -3,13 +3,11 @@ import BooksList from './BooksList.tsx'
 function App() {
 
   return (
-    <>
-      <div>
-        <section>
-          <BooksList />
-        </section>
-      </div>
-    </>
+    <div>
+      <section>
+        <BooksList />
+      </section>
+    </div>
   )
 }
 

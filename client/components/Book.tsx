@@ -5,10 +5,19 @@ export default function Book() {
   const { id } = useParams()
   const bookId = Number(id)
 
+  const { data: book, isLoading, isError } = useBooksById(bookId)
+
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+
+  if (isError) {
+    return <div>Error fetching book details...</div>
+  }
   if (isNaN(bookId)) {
     return <div>Invalid book id</div>
   }
-  const { data: book } = useBooksById(bookId)
+
   if (book) {
     return (
       <>
@@ -25,7 +34,7 @@ export default function Book() {
                   <p>{book.review}</p>
                 ) : (
                   <>
-                    <p>You haven't reviewed this book yet...</p>
+                    <p>You haven&apos;t reviewed this book yet...</p>
                     <button>Add Review</button>
                   </>
                 )}
