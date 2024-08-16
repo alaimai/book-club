@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 router.post('/add', async (req, res) => {
   const book = req.body
   try {
-     await db.addBook(book)
+    await db.addBook(book)
 
     //res.json({ books: books.map((book) => book.title) })
     res.status(200).json({ message: 'Book has beed added' })

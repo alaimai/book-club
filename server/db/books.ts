@@ -1,5 +1,7 @@
-import db from './connection.ts'
+import connection from './connection.ts'
 import { Book } from '../../models/book.ts'
+
+const db = connection
 
 export async function getAllBooks() {
   const books = await db('books').select()

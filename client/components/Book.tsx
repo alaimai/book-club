@@ -25,21 +25,26 @@ export default function Book() {
         <h2>Book details:</h2>
         <div>
           <h3>
-            <Link to={`/books/${id}`}>{book.title}</Link>
+            {book.title}
           </h3>
           <img src={book.cover_image} alt={book.title} />
-          <h4>{book.author}</h4>
-          <p>{book.description}</p>
+          <h4>Author: {book.author}</h4>
+          <p>Description: {book.description}</p>
           <div>
             <h4>Review:</h4>
             {book.review ? (
               <p>{book.review}</p>
             ) : (
-              <p>You haven't reviewed this book yet...</p>
+              <>
+                <p>You haven't reviewed this book yet...</p>
+                <button>Add Review</button>
+              </>
             )}
           </div>
-          {book.review === null && <button>Add Review</button>}
         </div>
+        <Link to="/books">
+          <button>My Books</button>
+        </Link>
       </>
     )
   }
