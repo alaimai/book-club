@@ -12,8 +12,8 @@ export async function getAllBooks(): Promise<Book[]> {
     throw new Error('Unable to fetch books')
   }
 }
-// add a book
-export async function getBookById(id:number): Promise<Book> {
+
+export async function getBookById(id: number): Promise<Book> {
   try {
     const res = await request.get(rootUrl + `/books/${id}`)
     return res.body as Book

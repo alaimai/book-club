@@ -5,7 +5,7 @@ export default function Layout() {
     <>
       <header>
         <Link to="/">
-          <h1 className="text-3xl font-bold underline">Book Club</h1>
+          <h1>Book Club</h1>
         </Link>
       </header>
       <main>

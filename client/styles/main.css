@@ -1,3 +1,82 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: #ffffff;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: white;
+  min-width: 360px;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+header {
+  background-size: cover;
+  background-position: center;
+  background-color: #000724;
+  color: #ffffff;
+  width: 100%;
+  padding: 30px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+a:link,
+a:visited {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.book-info a:link,
+.book-info a:visited {
+  color: black;
+}
+
+.books-container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.book-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.books-cover {
+  width: 100px;
+  height: auto;
+}
+
+.book-info {
+  flex: 1;
+  justify-content: center;
+  gap: 1rem;
+}
+
+button {
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  background: #000000;
+  color: #ffffff;
+  border-radius: 8px;
+  font-weight: 700;
+  line-height: 1;
+  margin: 20px;
+  padding: 10px 15px;
+  font-size: 16px;
+  align-self: center;
+}

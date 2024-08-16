@@ -5,13 +5,13 @@ import { validateLink } from './testImageUrl'
 
 export default function AddBook() {
   const { mutate: addBook, isPending, isSuccess, isError } = useAddBook()
-  const [inValidLink,setInValidLink] =useState('')
-  const bookDetails ={
+  const [inValidLink, setInValidLink] = useState('')
+  const bookDetails = {
     title: '',
     description: '',
-    author:'',
+    author: '',
     review: '',
-    cover_image:''
+    cover_image: ''
   }
   const [bookInfo, setBookInfo] = useState<Book>(bookDetails)
   const handleChange = (
@@ -20,26 +20,20 @@ export default function AddBook() {
     const { name, value } = e.target
     setBookInfo((prev) => ({ ...prev, [name]: value }))
   }
-  
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     console.log(bookInfo.cover_image)
     const isUrl = validateLink(bookInfo.cover_image.trim())
     console.log(isUrl)
-    if(isUrl === false){
+    if (isUrl === false) {
       setInValidLink('Invalid HTML link!')
       return
-    }else{
-    // if (
-    //   bookInfo.title === '' ||
-    //   bookInfo.description === '' ||
-    //   bookInfo.review === ''
-    // ) {
-    //   return window.alert('* must not be empty')
-    //}
-    setInValidLink('')
-    addBook(bookInfo)
-    setBookInfo(bookDetails)
+    } else {
+
+      setInValidLink('')
+      addBook(bookInfo)
+      setBookInfo(bookDetails)
     }
   }
 
@@ -78,7 +72,7 @@ export default function AddBook() {
           value={bookInfo.author}
           onChange={handleChange}
         />
-         <label htmlFor="cover_image">* Cover:</label>
+        <label htmlFor="cover_image">* Cover:</label>
         <input
           required
           id="cover_image"

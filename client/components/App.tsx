@@ -4,8 +4,8 @@ function App() {
 
   return (
     <>
-      <div className="app">
-        <section className="main">
+      <div>
+        <section>
           <BooksList />
         </section>
       </div>

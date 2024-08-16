@@ -6,8 +6,11 @@ export function useBooks() {
   return useQuery({ queryKey: ['books'], queryFn: api.getAllBooks })
 }
 
-export function useBooksById(id:number){
-  return useQuery({ queryKey: ['books',id], queryFn: ()=>api.getBookById(id) })
+export function useBooksById(id: number) {
+  return useQuery({
+    queryKey: ['books', id],
+    queryFn: () => api.getBookById(id),
+  })
 }
 export function useAddBook() {
   const queryClient = useQueryClient()
@@ -18,8 +21,3 @@ export function useAddBook() {
     },
   })
 }
-
-// Query functions go here e.g. useAddFruit
-/* function useAddFruit() {
-  return useFruitsMutation(addFruit)
-} */
