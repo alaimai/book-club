@@ -8,7 +8,6 @@ router.get('/', async (req, res) => {
     const books = await db.getAllBooks()
     res.json(books)
   } catch (error) {
-    console.log(error)
     res.status(500).json({ message: 'Something went wrong' })
   }
 })
@@ -18,7 +17,6 @@ router.post('/add', async (req, res) => {
     await db.addBook(book)
     res.status(200).json({ message: 'Book has beed added' })
   } catch (error) {
-    console.log(error)
     res.status(500).json({ message: 'Something went wrong' })
   }
 })
@@ -29,6 +27,17 @@ router.get('/:id', async (req, res, next) => {
     res.json(book)
   } catch (err) {
     next(err)
+  }
+})
+
+router.patch('/:id', async (req, res) => {
+  try {
+    const id = Number(req.params.id)
+    const { review } = req.body
+    const reviewAdded = await db.addReview(Number(id), review)
+    res.json(reviewAdded)
+  } catch (error) {
+    res.status(500).json({ message: 'Something went wrong' })
   }
 })
 

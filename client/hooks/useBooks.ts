@@ -21,3 +21,13 @@ export function useAddBook() {
     },
   })
 }
+
+export function useAddReview(id: number, review: string) {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: () => api.updateReview(id, review),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['books'] })
+    },
+  })
+}

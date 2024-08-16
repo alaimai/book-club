@@ -1,11 +1,14 @@
 import { Link, useParams } from 'react-router-dom'
 import { useBooksById } from '../hooks/useBooks'
+import { useState } from 'react'
+import AddReviewForm from './AddReview'
 
 export default function Book() {
   const { id } = useParams()
   const bookId = Number(id)
 
   const { data: book, isLoading, isError } = useBooksById(bookId)
+  const [isAddingReview, setIsAddingReview] = useState(false)
 
   if (isLoading) {
     return <div>Loading...</div>
@@ -16,6 +19,10 @@ export default function Book() {
   }
   if (isNaN(bookId)) {
     return <div>Invalid book id</div>
+  }
+
+  const handleAddReviewClick = () => {
+    setIsAddingReview(true)
   }
 
   if (book) {
@@ -35,7 +42,11 @@ export default function Book() {
                 ) : (
                   <>
                     <p>You haven&apos;t reviewed this book yet...</p>
-                    <button>Add Review</button>
+                    {isAddingReview ? (
+                      <AddReviewForm id={bookId} />
+                    ) : (
+                      <button onClick={handleAddReviewClick}>Add Review</button>
+                    )}
                   </>
                 )}
               </div>
